@@ -114,6 +114,7 @@ public class SGPA_Calculator {
             System.out.println("Enter spga for 2nd sem:");
             double scnd=sc.nextDouble();
             double res=sgpa/21.0;
+            System.out.println("Your SGPA for 3rd sem:"+res);
             System.out.println("Your Final CGPA is:"+(frst+scnd+res)/3.0);
             sc.close();
         }
