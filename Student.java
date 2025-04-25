@@ -2,6 +2,7 @@ import java.util.*;
 import java.time.ZoneId;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import Student.*;
 
 abstract class StudentMain {
     String Sid = generateSid();
@@ -73,6 +74,10 @@ class StudentInfo extends StudentMain {
         this.ContactNo = ContactNo;
         this.CGPA = 0.0f;
     }
+    
+    public static void viewStudent() {
+        System.out.println("add Student");
+    }
 
 }
 
@@ -115,10 +120,6 @@ class Student {
         sc.close();
     }
 
-    public static void viewStudent() {
-        System.out.println("add Student");
-    }
-
     public static void searchStudent() {
         System.out.println("add Student");
     }
@@ -132,8 +133,16 @@ class Student {
     }
 
     public static void sortStudent() {
-        
+        if(studentList.isEmpty()){
+            System.out.println("The List is Empty");
+        }else{
+            for(int i=0;i<studentList.size();i++){
+                StudentInfo s=studentList.get(i);
+                System.out.println(s);
+            }
+        }
     }
+
 
     public static void exportCSV() {
         System.out.println("add Student");
@@ -142,16 +151,16 @@ class Student {
     public static void cgpaCalc() {
         System.out.println("add Student");
     }
-
+    
+    static ArrayList<StudentInfo> studentList = new ArrayList<>();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<StudentInfo> studentList = new ArrayList<>();
 
         boolean exit = false;
         while (!exit) {
-            System.out.println("Enter the Operation you wanna perform on Student Files");
+            System.out.println("---------------------------------------------------\nEnter the Operation you wanna perform on Student Files\n---------------------------------------------------");
             System.out.println(
-                    "Menu Program \n add:add the student info \n view:view the complete info of the perticular student \n search:Searches for a student\n update :student details\n delete:delete the student info \n sort:Sort the students based on criteria \n exportCSV: Exports the data in the form of csv of note\n calcCGPA: calculates the cgpa of a perticular student");
+                    "Menu Program \n add:add the student info \n view:view the complete info of the perticular student \n search:Searches for a student\n update :student details\n delete:delete the student info \n sort:Sort the students based on criteria \n exportCSV: Exports the data in the form of csv of note\n calcCGPA: calculates the cgpa of a perticular student \n showall:Show the details of all students\n---------------------------------------------------");
 
             String operation = sc.next();
             switch (operation) {
@@ -164,8 +173,19 @@ class Student {
                 case "search":
                     // search
                     break;
+                case "showAll":
+                    // show All
+                    if(studentList.isEmpty()){
+                        System.out.println("No Data Found");
+                    }else{
+                        for(StudentInfo s: studentList){
+                            s.viewStudent();                        
+                        }
+                    }
+                    break;
                 case "sort":
-                    // sort
+                    //sort
+                    sortStudent();
                     break;
                 case "update":
                     // update
@@ -176,7 +196,8 @@ class Student {
                     // export
                     break;
                 case "calc CGPA":
-                    // update
+                    // cgpa semester 3 calculator
+                    
                     break;
 
             }
