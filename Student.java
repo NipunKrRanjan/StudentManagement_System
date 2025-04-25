@@ -1,5 +1,3 @@
-
-//import Package.Student;
 import java.util.*;
 import java.time.ZoneId;
 import java.text.SimpleDateFormat;
@@ -54,24 +52,6 @@ abstract class StudentMain {
 
 }
 
-interface StudOperation {
-    abstract void addStudent();
-
-    abstract void viewStudents();
-
-    abstract void searchStudent();
-
-    abstract void updateStudent();
-
-    abstract void deleteStudent();
-
-    abstract void sortStudent();
-
-    abstract void exportCSV();
-
-    abstract void cgpaCalc();
-}
-
 class StudentInfo extends StudentMain {
 
     String Address;
@@ -80,22 +60,24 @@ class StudentInfo extends StudentMain {
     Double ContactNo;
     Float CGPA;
 
-    StudentInfo( String SName, String fname,Date dob, String FatherName, String Address,
-    String Degree, String Subject,Double ContactNo) {
-    //super(Sid, SName, dob, FatherName);
-    //this.Sid=Sid;
-    this.SName=SName;
-    this.dob=dob;
-    this.FatherName=FatherName;
-    this.Address = Address;
-    this.Degree = Degree;
-    this.Subject = Subject;
-    this.ContactNo = ContactNo;
-    this.CGPA = 0.0f;
+    StudentInfo(String SName, String fname, Date dob, String FatherName, String Address,
+            String Degree, String Subject, Double ContactNo) {
+        // super(Sid, SName, dob, FatherName);
+        // this.Sid=Sid;
+        this.SName = SName;
+        this.dob = dob;
+        this.FatherName = FatherName;
+        this.Address = Address;
+        this.Degree = Degree;
+        this.Subject = Subject;
+        this.ContactNo = ContactNo;
+        this.CGPA = 0.0f;
     }
-    
 
-    public void addStudent() {
+}
+
+class Student {
+    public static void addStudent() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the details of the student");
 
@@ -110,13 +92,13 @@ class StudentInfo extends StudentMain {
 
         System.out.println("Enter address:");
         String address = sc.nextLine();
-        
+
         System.out.println("Enter degree:");
         String degree = sc.nextLine();
-    
+
         System.out.println("Enter subject:");
         String subject = sc.nextLine();
-    
+
         System.out.println("Enter contact number:");
         Double contact = sc.nextDouble();
 
@@ -124,75 +106,80 @@ class StudentInfo extends StudentMain {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date dob = sdf.parse(dobStr);
 
-                StudentInfo stud1 =new StudentInfo("NA", name, dob, fname, address, degree, subject, contact);
+            StudentInfo stud1 = new StudentInfo("NA", name, dob, fname, address, degree, subject, contact);
             System.out.println("Student created: " + stud1.SName + ", DOB: " + stud1.dob);
 
         } catch (Exception e) {
             System.out.println("Error parsing date: " + e.getMessage());
         }
+        sc.close();
     }
 
-    public void viewStudent() {
+    public static void viewStudent() {
         System.out.println("add Student");
     }
 
-    public void searchStudent() {
+    public static void searchStudent() {
         System.out.println("add Student");
     }
 
-    public void updateStudent() {
+    public static void updateStudent() {
         System.out.println("add Student");
     }
 
-    public void deleteStudent() {
+    public static void deleteStudent() {
         System.out.println("add Student");
     }
 
-    public void sortStudent() {
+    public static void sortStudent() {
+        
+    }
+
+    public static void exportCSV() {
         System.out.println("add Student");
     }
 
-    public void exportCSV() {
+    public static void cgpaCalc() {
         System.out.println("add Student");
     }
-
-    public void cgpaCalc() {
-        System.out.println("add Student");
-    }
-}
-
-class Student implements StudOperation {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        StudentInfo newStud = new StudentInfo("NA", "", new Date(), "", "", "", "", 0.0d);
+        ArrayList<StudentInfo> studentList = new ArrayList<>();
 
-        System.out.println("Enter the Operation you wanna perform on Student Files");
-        System.out.println(
-                "Menu Program \n add:add the student info \n view:view the complete info of the perticular student \n search:Searches for a student\n update :student details\n delete:delete the student info \n sort:Sort the students based on criteria \n exportCSV: Exports the data in the form of csv of note\n calcCGPA: calculates the cgpa of a perticular student");
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Enter the Operation you wanna perform on Student Files");
+            System.out.println(
+                    "Menu Program \n add:add the student info \n view:view the complete info of the perticular student \n search:Searches for a student\n update :student details\n delete:delete the student info \n sort:Sort the students based on criteria \n exportCSV: Exports the data in the form of csv of note\n calcCGPA: calculates the cgpa of a perticular student");
 
-        String operation = sc.next();
-        switch (operation) {
-            case "add":
-                newStud.addStudent();
-                break;
-            case "view":
-                // view
-                break;
-            case "search":
-                // search
-                break;
-            case "update":
-                // update
-                break;
-            case "delete":
-                // delete
-            case "export":
-                // export
-                break;
-            case "calc CGPA":
-                // update
-                break;
+            String operation = sc.next();
+            switch (operation) {
+                case "add":
+                    addStudent();
+                    break;
+                case "view":
+                    // view
+                    break;
+                case "search":
+                    // search
+                    break;
+                case "sort":
+                    // sort
+                    break;
+                case "update":
+                    // update
+                    break;
+                case "delete":
+                    // delete
+                case "export":
+                    // export
+                    break;
+                case "calc CGPA":
+                    // update
+                    break;
+
+            }
 
         }
     }
