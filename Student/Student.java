@@ -2,7 +2,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
-
 abstract class StudentMain {
     String Sid = generateSid();
     String SName;
@@ -82,7 +81,7 @@ class StudentInfo extends StudentMain {
 
 class Student 
 {
-    static ArrayList<StudentInfo> studentList = new ArrayList<>();
+    public static ArrayList<StudentInfo> studentList = new ArrayList<>();
     public static void addStudent() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the details of the student");
@@ -121,8 +120,14 @@ class Student
         }
     }
 
-    public static void searchStudent() {
-        System.out.println("add Student");
+    public static void searchStudent() 
+    {
+        boolean re=view.check();
+        if(re==false)
+        {
+            System.out.println("Student not found:\nPlease add new student:");
+            addStudent();
+        }
     }
 
     public static void updateStudent() {
@@ -161,7 +166,7 @@ class Student
         while (!exit) {
             System.out.println("---------------------------------------------------\nEnter the Operation you wanna perform on Student Files\n---------------------------------------------------");
             System.out.println(
-                    "Menu Program \n add:add the student info \n view:view the complete info of the perticular student \n search:Searches for a student\n update :student details\n delete:delete the student info \n sort:Sort the students based on criteria \n exportCSV: Exports the data in the form of csv of note\n calcCGPA: calculates the cgpa of a perticular student \n showall:Show the details of all students\n---------------------------------------------------");
+                    "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \nShowall : Show the details of all students\n---------------------------------------------------");
 
             String operation = sc.next();
             switch (operation) {

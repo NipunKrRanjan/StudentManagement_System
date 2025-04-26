@@ -2,8 +2,8 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class SGPA_Calculator {
-
+public class SGPA_Calculator 
+{
     static int marks() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter marks of Sub 1:");
