@@ -1,8 +1,7 @@
-import java.util.*;
-import java.time.ZoneId;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import Student.*;
+import java.time.ZoneId;
+import java.util.*;
 
 abstract class StudentMain {
     String Sid = generateSid();
@@ -81,7 +80,9 @@ class StudentInfo extends StudentMain {
 
 }
 
-class Student {
+class Student 
+{
+    static ArrayList<StudentInfo> studentList = new ArrayList<>();
     public static void addStudent() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the details of the student");
@@ -112,12 +113,12 @@ class Student {
             Date dob = sdf.parse(dobStr);
 
             StudentInfo stud1 = new StudentInfo("NA", name, dob, fname, address, degree, subject, contact);
+            studentList.add(stud1);
             System.out.println("Student created: " + stud1.SName + ", DOB: " + stud1.dob);
 
         } catch (Exception e) {
             System.out.println("Error parsing date: " + e.getMessage());
         }
-        sc.close();
     }
 
     public static void searchStudent() {
@@ -152,7 +153,7 @@ class Student {
         System.out.println("add Student");
     }
     
-    static ArrayList<StudentInfo> studentList = new ArrayList<>();
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
