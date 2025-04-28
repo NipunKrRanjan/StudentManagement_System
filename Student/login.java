@@ -6,8 +6,8 @@ public class login
 
     boolean r = false;
 
-    boolean check() {
-
+    boolean check() 
+    {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter your UID:");
         String uid = sc.next();
@@ -58,5 +58,10 @@ public class login
             }
         }
         return r;
+    }
+    public static void main(String[] args) 
+    {
+        login l=new login();
+        l.check();
     }
 }
