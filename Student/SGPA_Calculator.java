@@ -63,7 +63,7 @@ public class SGPA_Calculator
             dsdl = ((dsdl / 10) + 1);
         }
         int sgpa = (ps + ds + dsd + ind + stw + dsdl + dsl + afl);
-        sc.close();
+        //sc.close();
         return sgpa;
     }
 
@@ -116,7 +116,7 @@ public class SGPA_Calculator
             double res=sgpa/21.0;
             System.out.println("Your SGPA for 3rd sem:"+res);
             System.out.println("Your Final CGPA is:"+(frst+scnd+res)/3.0);
-            sc.close();
+            //sc.close();
         }
     }
 }

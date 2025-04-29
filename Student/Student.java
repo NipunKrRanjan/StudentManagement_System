@@ -155,7 +155,7 @@ class Student
     }
 
     public static void cgpaCalc() {
-        System.out.println("add Student");
+        
     }
     
     
