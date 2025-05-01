@@ -1,6 +1,6 @@
+import java.util.*;
 public class view 
 {
-    boolean found=false;
     static void vw(int i)
     {
         System.out.println("Name:"+Student.studentList.get(i).SName);
@@ -11,30 +11,16 @@ public class view
         System.out.println("Date of Birth:"+Student.studentList.get(i).dob);
         System.out.println("Year of Joining:"+Student.studentList.get(i).yearOfJoiningDate);
     }
-<<<<<<< HEAD
-=======
-    static boolean check()
+    public static void main(String[] args) 
     {
         Scanner sc=new Scanner(System.in);
         System.out.println("Please enter the Unique ID of the student to be searched:");
         String id=sc.next();
-        boolean found=false;
-        for(int i=0;i<Student.studentList.size();i++)
+        boolean found=check.che(id);
+        if(found==true)
         {
-            if((Student.studentList.get(i).Sid).equals(id))
-            {
-                found=true;
-                System.out.println("Student Found!\nThe details of the student is as follows:\n");
-                vw(i);
-            }
+            System.out.println("Student Found!\nThe details of the student is as follows:\n");
+            vw(check.a);
         }
-        sc.close();
-        return found;
-        
-    }
->>>>>>> 72cdd3b1a917a0d4cf5df044515a30a898d90fc0
-    public static void main(String[] args) 
-    {
-
     }
 }

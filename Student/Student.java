@@ -1,11 +1,11 @@
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
 
 abstract class StudentMain {
     String Sid = generateSid();
@@ -194,7 +194,6 @@ class Student {
         sc.close();
     }
 
-<<<<<<< HEAD
     public static void searchStudent() 
     {
         Scanner sc = new Scanner(System.in);
@@ -203,11 +202,6 @@ class Student {
         boolean re=check.che(id);
         if(re==false)
         {
-=======
-    public static void searchStudent() {
-        boolean re = view.check();
-        if (re == false) {
->>>>>>> 72cdd3b1a917a0d4cf5df044515a30a898d90fc0
             System.out.println("Student not found:\nPlease add new student:");
             addStudent();
         }
@@ -288,7 +282,7 @@ class Student {
                 case "view":
                     try{
                     // view
-                    view.check();
+                    view.main(args);
                     break;
                     }catch(Exception e){
                         System.out.println("Some Error had occured in the function ");
