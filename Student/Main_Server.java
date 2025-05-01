@@ -1,7 +1,7 @@
 import java.util.*;
 public class Main_Server
 {
-    public static void main(String[] args) throws Exception 
+    public static void main(String[] args) 
     {
         Scanner sc=new Scanner(System.in);
         int ch;
@@ -14,14 +14,26 @@ public class Main_Server
             switch (ch) 
             {
                 case 1:
+                try{
                     Student.main(args);
                     break;
+                }catch(Exception e){
+                    System.out.println("Error Occured");
+                }
                 case 2:
+                try{
                     login.main(args);
                     break;
+                }catch(Exception e){
+                    System.out.println("Error Occured");
+                }
                 case 3:
+                try{
                     System.out.println("Thank you. Have a nice day ahead");
                     break;
+                }catch(Exception e){
+                    System.out.println("Error Occured");
+                }
                 default:
                     throw new AssertionError();
             }
