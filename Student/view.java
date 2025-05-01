@@ -3,7 +3,6 @@ public class view
 {
     boolean found=false;
     static void vw(int i)
-    
     {
         System.out.println("Name:"+Student.studentList.get(i).SName);
         System.out.println("Father name:"+Student.studentList.get(i).FatherName);
@@ -28,7 +27,9 @@ public class view
                 vw(i);
             }
         }
+        sc.close();
         return found;
+        
     }
     public static void main(String[] args) 
     {
