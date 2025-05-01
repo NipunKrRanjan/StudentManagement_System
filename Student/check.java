@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class check 
 {
     static int a;
-    static boolean check(String id)
+    static boolean che(String id)
     {
         Scanner sc=new Scanner(System.in);
        
@@ -14,7 +14,7 @@ public class check
             {
                 found=true;
                 check c=new check();
-                c.a=i;
+                a=i;
                 break;
             }
         }
