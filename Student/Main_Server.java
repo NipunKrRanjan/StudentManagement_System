@@ -18,6 +18,7 @@ public class Main_Server
                     break;
                 case 2:
                     login.main(args);
+                    
                     break;
                 case 3:
                     System.out.println("Thank you. Have a nice day ahead");

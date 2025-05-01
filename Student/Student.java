@@ -122,11 +122,19 @@ class Student
 
     public static void searchStudent() 
     {
-        boolean re=view.check();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the Unique ID of the student to be searched:");
+        String id=sc.next();
+        boolean re=check.che(id);
         if(re==false)
         {
             System.out.println("Student not found:\nPlease add new student:");
             addStudent();
+        }
+        else
+        {
+            System.out.println("The details of student to be viewed is as follows");
+            view.vw(check.a);
         }
     }
 
