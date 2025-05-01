@@ -63,7 +63,7 @@ public class SGPA_Calculator
             dsdl = ((dsdl / 10) + 1);
         }
         int sgpa = (ps + ds + dsd + ind + stw + dsdl + dsl + afl);
-        //sc.close();
+        sc.close();
         return sgpa;
     }
 
@@ -86,6 +86,7 @@ public class SGPA_Calculator
         System.out.println("Enter pointer obtained in Sub 8:");
         int dsl = sc.nextInt();
         int sgpa = (ps * 4) + (ds * 4) + (afl * 4) + (dsd * 3) + (ind * 2) + (stw * 2) + (dsdl + dsl);
+        sc.close();
         return sgpa;
     }
 

@@ -2,6 +2,11 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
 abstract class StudentMain {
     String Sid = generateSid();
     String SName;
@@ -59,7 +64,7 @@ class StudentInfo extends StudentMain {
     Double ContactNo;
     Float CGPA;
 
-    StudentInfo(String SName, String fname, Date dob, String FatherName, String Address,
+    StudentInfo(String SName, Date dob, String FatherName, String Address,
             String Degree, String Subject, Double ContactNo) {
         // super(Sid, SName, dob, FatherName);
         // this.Sid=Sid;
@@ -72,17 +77,85 @@ class StudentInfo extends StudentMain {
         this.ContactNo = ContactNo;
         this.CGPA = 0.0f;
     }
-    
-    public static void viewStudent() {
-        System.out.println("add Student");
-    }
 
 }
 
-class Student 
-{
+class Student {
     public static ArrayList<StudentInfo> studentList = new ArrayList<>();
+
     public static void addStudent() {
+        try {
+            Scanner read = new Scanner(new File("DemoData.txt"));
+
+            while (read.hasNextLine()) {
+
+                String studentLine = read.nextLine().trim();
+                if (studentLine.isEmpty())
+                    continue;
+
+                String[] pairs = studentLine.split(",");
+
+                String Sid = "", Sname = "", FatherName = "", Address = "", Degree = "", Subject = "", password = "";
+                float cgpa = 0.0f;
+                double ContactNo = 0.0;
+                Date dob = null;
+
+                for (int i = 0; i < pairs.length; i++) {
+                    String[] keyValue = pairs[i].split(":", 2);
+                    if (keyValue.length < 2)
+                        continue;
+                    String key = keyValue[0].trim();
+                    String value = keyValue[1].trim();
+
+                    switch (key) {
+                        case "Sid":
+                            Sid = value;
+                            break;
+                        case "SName":
+                            Sname = value;
+                            break;
+                        case "FatherName":
+                            FatherName = value;
+                            break;
+                        case "Address":
+                            Address = value;
+                            break;
+                        case "Degree":
+                            Degree = value;
+                            break;
+                        case "Subject":
+                            Subject = value;
+                            break;
+                        case "Password":
+                            password = value;
+                            break;
+                        case "CGPA":
+                            cgpa = Float.parseFloat(value);
+                            break;
+                        case "ContactNo":
+                            ContactNo = Double.parseDouble(value);
+                            break;
+                        case "dob":
+                            try {
+                                dob = new SimpleDateFormat("dd-mm-yyyy").parse(value);
+                            } catch (Exception e) {
+                                System.out.println("Error getting the data");
+                            }
+                            break;
+                    }
+                }
+                StudentInfo student = new StudentInfo(Sname, dob, FatherName, Address, Degree, Subject, null);
+                studentList.add(student);
+                // read.close();
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The File cant be Found Please check again");
+        }
+
+    }
+
+    public static void updateStudent() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the details of the student");
 
@@ -111,15 +184,17 @@ class Student
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date dob = sdf.parse(dobStr);
 
-            StudentInfo stud1 = new StudentInfo("NA", name, dob, fname, address, degree, subject, contact);
+            StudentInfo stud1 = new StudentInfo(name, dob, fname, address, degree, subject, contact);
             studentList.add(stud1);
             System.out.println("Student created: " + stud1.SName + ", DOB: " + stud1.dob);
 
         } catch (Exception e) {
             System.out.println("Error parsing date: " + e.getMessage());
         }
+        sc.close();
     }
 
+<<<<<<< HEAD
     public static void searchStudent() 
     {
         Scanner sc = new Scanner(System.in);
@@ -128,6 +203,11 @@ class Student
         boolean re=check.che(id);
         if(re==false)
         {
+=======
+    public static void searchStudent() {
+        boolean re = view.check();
+        if (re == false) {
+>>>>>>> 72cdd3b1a917a0d4cf5df044515a30a898d90fc0
             System.out.println("Student not found:\nPlease add new student:");
             addStudent();
         }
@@ -138,36 +218,55 @@ class Student
         }
     }
 
-    public static void updateStudent() {
-        System.out.println("add Student");
-    }
+    public static void deleteStudent(String Sid) {
+        if (studentList.isEmpty()) {
+            System.out.println("The List is Empty");
+        } else {
+            for (int i = 0; i < studentList.size(); i++) {
+                if (studentList.get(i).Sid.equals(Sid)) {
+                    studentList.remove(i);
+                }
 
-    public static void deleteStudent() {
-        System.out.println("add Student");
+            }
+        }
+
     }
 
     public static void sortStudent() {
-        if(studentList.isEmpty()){
+        if (studentList.isEmpty()) {
             System.out.println("The List is Empty");
-        }else{
-            for(int i=0;i<studentList.size();i++){
-                StudentInfo s=studentList.get(i);
+        } else {
+            for (int i = 0; i < studentList.size(); i++) {
+                StudentInfo s = studentList.get(i);
                 System.out.println(s);
             }
         }
     }
 
+    public static void exportCSV() throws IOException {
+        try {
+            FileWriter expFile = new FileWriter("export.csv");
+            for (int i = 0; i < studentList.size(); i++) {
+                System.out.println(studentList.get(i));
+            }
+            expFile.write("SID,Sname,FatherName,Address,Degree,Subject,password,cgpa,ContactNo,dob\n");
+            for (StudentInfo student : studentList) {
+                String line = student.Sid + "," + student.SName + "," + student.FatherName + "," + student.Address + ","
+                        + student.Degree + "," + student.Subject + "," + student.Password + "," + student.CGPA + ","
+                        + student.ContactNo + "," +
+                        new SimpleDateFormat("dd-MM-yyyy").format(student.dob);
+                expFile.write(line);
+            }
+            expFile.close();
+            System.out.println("Successfully Exported");
 
-    public static void exportCSV() {
-        System.out.println("add Student");
+        } catch (IOException e) {
+            System.out.println("Can not write into the file properly");
+        }
+
     }
 
-    public static void cgpaCalc() {
-        
-    }
-    
-    
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
 
         boolean exit = false;
@@ -177,44 +276,89 @@ class Student
                     "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \nShowall : Show the details of all students\n---------------------------------------------------");
 
             String operation = sc.next();
-            switch (operation) {
+            switch (operation.toLowerCase()) {
                 case "add":
+                    try{
                     addStudent();
+                    System.out.println("data added");
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
                     break;
                 case "view":
+                    try{
                     // view
+                    view.check();
                     break;
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
                 case "search":
+                    try{
                     // search
+                    searchStudent();
                     break;
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
                 case "showAll":
+                    try{
                     // show All
                     if(studentList.isEmpty()){
                         System.out.println("No Data Found");
                     }else{
-                        for(StudentInfo s: studentList){
-                            s.viewStudent();                        
+                        for(int i =0;i<studentList.size();i++){
+                            view.vw(i);                        
                         }
                     }
+                        }catch(Exception e){
+                            System.out.println("Some Error had occured in the function ");
+                        }
                     break;
                 case "sort":
+                    try{
                     //sort
                     sortStudent();
                     break;
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
                 case "update":
+                    try{
                     // update
+                    updateStudent();
                     break;
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
                 case "delete":
+                    try{
                     // delete
+                    System.out.println("Enter the Id to delete");
+                    String id= sc.next();
+                    deleteStudent(id);
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                     }
                 case "export":
-                    // export
-                    break;
-                case "calc CGPA":
-                    // cgpa semester 3 calculator
+                    try{
+                        exportCSV();
+                        break;
+                    }catch(Exception e){
+                    System.out.println("ERROR!!");
+                    }
                     
+                case "calc CGPA":
+                    try{
+                    // cgpa semester 3 calculator
+                    SGPA_Calculator.gradecalculate();
                     break;
+                    }catch(Exception e){
+                        System.out.println("Some Error had occured in the function ");
+                    }
 
             }
+            // sc.close();
 
         }
     }
