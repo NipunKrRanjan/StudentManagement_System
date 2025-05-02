@@ -267,7 +267,7 @@ class Student {
         while (!exit) {
             System.out.println("---------------------------------------------------\nEnter the Operation you wanna perform on Student Files\n---------------------------------------------------");
             System.out.println(
-                    "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \nShowall : Show the details of all students\n---------------------------------------------------");
+                    "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \nShowall : Show the details of all students\nExit:To Terminate the program\n---------------------------------------------------");
 
             String operation = sc.next();
             switch (operation.toLowerCase()) {
@@ -320,7 +320,7 @@ class Student {
                 case "update":
                     try{
                     // update
-                    updateStudent();
+                    update.main(args);
                     break;
                     }catch(Exception e){
                         System.out.println("Some Error had occured in the function ");
@@ -345,10 +345,17 @@ class Student {
                 case "calc CGPA":
                     try{
                     // cgpa semester 3 calculator
-                    SGPA_Calculator.gradecalculate();
+                    SGPA.main(args);
                     break;
                     }catch(Exception e){
                         System.out.println("Some Error had occured in the function ");
+                    }
+                case "exit":
+                    try {
+                        exit=true;
+                        break;
+                    } catch (Exception e) 
+                    {
                     }
 
             }

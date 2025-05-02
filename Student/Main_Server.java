@@ -35,7 +35,7 @@ public class Main_Server
                     System.out.println("Error Occured");
                 }
                 default:
-                    throw new AssertionError();
+                    throw new AssertionError("Invalid choice entered");
             }
             }
             catch(AssertionError e)

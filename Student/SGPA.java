@@ -1,8 +1,7 @@
 
-import java.io.IOException;
 import java.util.Scanner;
 
-public class SGPA_Calculator 
+public class SGPA
 {
     static int marks() {
         Scanner sc = new Scanner(System.in);
@@ -90,7 +89,7 @@ public class SGPA_Calculator
         return sgpa;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         int sgpa = 0;
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i >= 0; i++) {
