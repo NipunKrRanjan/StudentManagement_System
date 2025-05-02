@@ -268,7 +268,7 @@ class Student {
         while (!exit) {
             System.out.println("---------------------------------------------------\nEnter the Operation you wanna perform on Student Files\n---------------------------------------------------");
             System.out.println(
-                    "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \nShowall : Show the details of all students\nExit:To Terminate the program\n---------------------------------------------------");
+                    "\nAdd : add the student info \nView : View the complete info of the perticular student \nSearch : Searches for a student\nUpdate : student details\nDelete : Delete the student info \nSort : Sort the students based on criteria \nExportCSV : Exports the data in the form of csv of note\nCalcCGPA : calculates the cgpa of a perticular student \n---------------------------------------------------");
 
             String operation = sc.next();
             switch (operation.toLowerCase()) {
@@ -296,20 +296,6 @@ class Student {
                     }catch(Exception e){
                         System.out.println("Some Error had occured in the function ");
                     }
-                case "showAll":
-                    try{
-                    // show All
-                    if(studentList.isEmpty()){
-                        System.out.println("No Data Found");
-                    }else{
-                        for(int i =0;i<studentList.size();i++){
-                            view.vw(i);                        
-                        }
-                    }
-                        }catch(Exception e){
-                            System.out.println("Some Error had occured in the function ");
-                        }
-                    break;
                 case "sort":
                     try{
                     //sort
@@ -343,7 +329,7 @@ class Student {
                     System.out.println("ERROR!!");
                     }
                     
-                case "calc CGPA":
+                case "calccgpa":
                     try{
                     // cgpa semester 3 calculator
                     SGPA.main(args);

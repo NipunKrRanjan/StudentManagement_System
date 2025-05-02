@@ -62,7 +62,7 @@ public class SGPA
             dsdl = ((dsdl / 10) + 1);
         }
         int sgpa = (ps + ds + dsd + ind + stw + dsdl + dsl + afl);
-        sc.close();
+        
         return sgpa;
     }
 
@@ -85,7 +85,6 @@ public class SGPA
         System.out.println("Enter pointer obtained in Sub 8:");
         int dsl = sc.nextInt();
         int sgpa = (ps * 4) + (ds * 4) + (afl * 4) + (dsd * 3) + (ind * 2) + (stw * 2) + (dsdl + dsl);
-        sc.close();
         return sgpa;
     }
 
@@ -96,13 +95,11 @@ public class SGPA
             System.out.println("Enter 1: for SGPA calculation using marks \n      2:To calculate SGPA using pointer obtained in subject \n      3:To exit");
             int ch = sc.nextInt();
             switch (ch) {
-                case 1 ->
-                    sgpa = marks();
-                case 2 ->
-                    sgpa = gradecalculate();
-                case 3 -> {
-                }
-                default -> {
+                case 1 :
+                    sgpa = marks();break;
+                case 2 :
+                    sgpa = gradecalculate();break;
+                default : {
                 }
             }
             if (ch == 3) {
