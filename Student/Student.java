@@ -225,14 +225,15 @@ class Student {
         }
 
     }
-
+    
     public static void sortStudent() {
         if (studentList.isEmpty()) {
             System.out.println("The List is Empty");
         } else {
-            for (int i = 0; i < studentList.size(); i++) {
-                StudentInfo s = studentList.get(i);
-                System.out.println(s);
+
+            studentList.sort((s1, s2) -> s1.Sid.compareTo(s2.Sid));
+            for (StudentInfo student : studentList) {
+                System.out.println(student.Sid + " - " + student.SName);
             }
         }
     }
@@ -241,14 +242,14 @@ class Student {
         try {
             FileWriter expFile = new FileWriter("export.csv");
             for (int i = 0; i < studentList.size(); i++) {
-                System.out.println(studentList.get(i));
+                System.out.println(studentList.get(i).Sid);
             }
             expFile.write("SID,Sname,FatherName,Address,Degree,Subject,password,cgpa,ContactNo,dob\n");
             for (StudentInfo student : studentList) {
                 String line = student.Sid + "," + student.SName + "," + student.FatherName + "," + student.Address + ","
                         + student.Degree + "," + student.Subject + "," + student.Password + "," + student.CGPA + ","
                         + student.ContactNo + "," +
-                        new SimpleDateFormat("dd-MM-yyyy").format(student.dob);
+                        new SimpleDateFormat("dd-MM-yyyy").format(student.dob)+"\n";
                 expFile.write(line);
             }
             expFile.close();
@@ -282,7 +283,7 @@ class Student {
                 case "view":
                     try{
                     // view
-                    view.main(args);
+                    view.vw();
                     break;
                     }catch(Exception e){
                         System.out.println("Some Error had occured in the function ");
