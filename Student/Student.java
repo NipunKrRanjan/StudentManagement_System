@@ -17,17 +17,6 @@ abstract class StudentMain {
 
     private static int count = 0;
 
-    /*
-     * StudentMain(String Sid, String SName, Date dob, String FatherName) {
-     * this.Sid
-     * this.SName = SName;
-     * this.dob = dob;
-     * this.FatherName = FatherName;
-     * this.yearOfJoiningDate = getDate();
-     * this.Password
-     * }
-     */
-
     protected static void total() {
         count++;
     }
@@ -66,8 +55,7 @@ class StudentInfo extends StudentMain {
 
     StudentInfo(String SName, Date dob, String FatherName, String Address,
             String Degree, String Subject, Double ContactNo) {
-        // super(Sid, SName, dob, FatherName);
-        // this.Sid=Sid;
+
         this.SName = SName;
         this.dob = dob;
         this.FatherName = FatherName;
@@ -146,7 +134,6 @@ class Student {
                 }
                 StudentInfo student = new StudentInfo(Sname, dob, FatherName, Address, Degree, Subject, null);
                 studentList.add(student);
-                // read.close();
             }
 
         } catch (FileNotFoundException e) {

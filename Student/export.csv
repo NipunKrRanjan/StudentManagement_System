@@ -1,16 +1,12 @@
 SID,Sname,FatherName,Address,Degree,Subject,password,cgpa,ContactNo,dob
-20256.00,Alice Johnson,Robert Johnson,123 Main St,BSc Computer Science,Data Structures,f714fe18,0.0,null,15-01-2002
-20251.00,Brian Smith,Michael Smith,456 Park Ave,BA English,British Literature,c610caa9,0.0,null,20-01-2001
-20256.00,Clara Lee,Daniel Lee,789 Lake Rd,BCom Finance,Accounting,658322da,0.0,null,05-01-2003
-20251.00,David Kim,Edward Kim,321 Oak St,BSc Mathematics,Calculus,4e5ca6c7,0.0,null,12-01-2002
-20254.00,Eva Green,Henry Green,654 Pine Ave,BA Psychology,Cognitive Science,2b3896c5,0.0,null,30-01-2001
-20258.00,Frank White,George White,888 Elm St,BSc Physics,Quantum Mechanics,81e0d797,0.0,null,22-01-2003
-20254.00,Grace Park,Howard Park,777 Cedar Rd,BBA Marketing,Consumer Behavior,ad5c2444,0.0,null,17-01-2002
-20253.00,Henry Adams,Ian Adams,222 Maple Ave,BSc Chemistry,Organic Chemistry,5da1ed87,0.0,null,11-01-2001
-20251.00,Irene Black,Jack Black,333 Birch Blvd,BA History,World History,febc8bee,0.0,null,19-01-2003
-20253.00,Jack Brown,Kevin Brown,444 Willow St,BSc Biology,Genetics,b71a79de,0.0,null,25-01-2002
-20255.00,Kelly Clark,Larry Clark,555 Ash Dr,BBA Finance,Financial Management,9242566b,0.0,null,08-01-2001
-20252.00,Liam Davis,Mark Davis,666 Spruce Ln,BSc Statistics,Probability,7d1d5e8f,0.0,null,13-01-2003
-20254.00,Mia Evans,Nathan Evans,777 Poplar Ct,BA Philosophy,Ethics,e4943d60,0.0,null,28-01-2002
-20251.00,Noah Foster,Oliver Foster,888 Redwood Rd,BSc Geology,Mineralogy,a383745a,0.0,null,03-01-2001
-20257.00,Olivia Grant,Peter Grant,999 Cypress Ave,BA Sociology,Social Theory,8cd6c56d,0.0,null,21-01-2003
+20252.00,Clara Lee,Daniel Lee,789 Lake Rd,BCom Finance,Accounting,6c3d3ff3,0.0,null,05-01-2003
+20252.00,Grace Park,Howard Park,777 Cedar Rd,BBA Marketing,Consumer Behavior,a103fd36,0.0,null,17-01-2002
+20253.00,Alice Johnson,Robert Johnson,123 Main St,BSc Computer Science,Data Structures,be0047ed,0.0,null,15-01-2002
+20253.00,Frank White,George White,888 Elm St,BSc Physics,Quantum Mechanics,ffb069ca,0.0,null,22-01-2003
+20255.00,Eva Green,Henry Green,654 Pine Ave,BA Psychology,Cognitive Science,6df84c27,0.0,null,30-01-2001
+20255.00,Kelly Clark,Larry Clark,555 Ash Dr,BBA Finance,Financial Management,8c731ee9,0.0,null,08-01-2001
+20256.00,Mia Evans,Nathan Evans,777 Poplar Ct,BA Philosophy,Ethics,b926748a,0.0,null,28-01-2002
+20256.00,Noah Foster,Oliver Foster,888 Redwood Rd,BSc Geology,Mineralogy,6aa48aaf,0.0,null,03-01-2001
+20257.00,Brian Smith,Michael Smith,456 Park Ave,BA English,British Literature,c7cddf30,0.0,null,20-01-2001
+20257.00,Jack Brown,Kevin Brown,444 Willow St,BSc Biology,Genetics,2a848cb9,0.0,null,25-01-2002
+20258.00,David Kim,Edward Kim,321 Oak St,BSc Mathematics,Calculus,50c80a34,0.0,null,12-01-2002
